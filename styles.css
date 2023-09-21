@@ -1,0 +1,355 @@
+:root {
+  --white: rgb(255, 251, 254);
+  --gray: rgb(208, 207, 207);
+  --raisin-black: rgb(54, 54, 54);
+  --blue: rgb(0, 65, 163);
+  --orange: rgb(224, 127, 0);
+  --light-orange: rgb(255, 167, 51);
+  --yellow-green: rgb(184, 207, 72);
+  --red-violet: rgb(230, 101, 159);
+  --light-blue: rgb(51, 133, 255);
+/*   --light-yellow: rgb(248, 220, 75); */
+/*   --light-green: rgb(57, 126, 116); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* height of sticky header */
+  font-family: Helvetica;
+}
+
+main {
+  margin-top: 60px;
+}
+
+h1, h2 {
+  font-family: 'PT Sans', Helvetica, sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+/* ==========NAVBAR SECTION START========== */
+.navbar {
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background: var(--white);
+  box-shadow: 0 3px 0 rgba(236, 236, 236, 0.5);
+  z-index: 10;
+}
+
+.navbar > a:last-child {
+  margin-right: 2rem;
+}
+
+.navlink {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.navlink:after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px var(--blue);  
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+  transform-origin: 50% 50%
+}
+
+.navlink:hover:after { 
+  transform: scaleX(1);
+  transform-origin: 50% 50%;
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    justify-content: center;
+  }
+  
+  .navlink {
+  margin: auto 1.5rem;
+  }
+  .navbar > a:last-child {
+  margin-right: 0;
+  }
+}
+
+
+/* ==========WELCOME SECTION START========== */
+.welcome {
+  width: 100%;
+  height: 100vh;
+  background: var(--gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 3.5rem;
+}
+
+.welcome > h1 {
+  font-family: 'PT Sans', Helvetica, sans-serif;
+  font-size: 3.5rem;
+  color: var(--blue);
+}
+
+.welcome > p {
+  font-family: 'Titillium Web', Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--raisin-black);
+}
+
+
+/* ==========PROJECTS SECTION START========== */
+.projects {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 2rem 6rem 2rem;
+  background: var(--blue);
+}
+
+.projects-header {
+  color: var(--white);
+  text-align: center;
+  line-height: 4rem;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+  border-bottom: 0.1rem solid var(--white);
+}
+
+@media (max-width: 500px) {
+  .projects-header {
+    font-size: 1.7rem;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 2rem;
+  width: 100%;
+  height: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+/*   background: red; */
+}
+
+.project-tile {
+  border-radius: 3px;
+  box-shadow: 0 0px 10px 5px rgba(0, 0, 0, 0.5);
+  background: var(--raisin-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-tile > img {
+  height: 100%;
+  width: 100%;
+  object-fit: fit;
+  border-radius: 3px 3px 0 0;
+}
+
+.project-tile > p {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: var(--white);
+  background: var(--raisin-black);
+  font-size: 1.2rem;
+  font-family: 'Titillium Web', Helvetica, sans-serif;
+  line-height: 1rem;
+  border-radius: 0 0 5px 5px;
+}
+
+.project-tile > p > span {
+  color: var(--raisin-black);
+  font-size: 1.2rem;
+  transition: color 0.3s ease-out;
+  font-family: 'Titillium Web', Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.project-tile:hover > p > span {
+  font-size: 1.2rem;
+  color: var(--orange);
+}
+
+.show-all-btn {
+  width: 130px;
+  text-align: center;
+  display: block;
+  margin: 3rem auto 0;
+  padding: 0.4rem 1rem;
+  background:var(--raisin-black);
+  color: var(--white);
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5); 
+  font-size: 1.2rem;
+  font-family: 'Titillium Web', Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: 0.2s ease-out;
+}
+
+.show-all-btn:hover {
+/*   background: var(--gray); */
+  color: var(--orange);
+}
+
+.show-all-btn:active {
+/*   background: var(--gray); */
+  transform: scale(0.9)
+}
+
+
+/* ==========CONTACT SECTION START========== */
+.contact {
+  width: 100%;
+  min-height: 50vh;
+  background: var(--raisin-black);
+  color: white;
+  padding: 4rem 2rem 0 2rem;
+}
+
+.contact-header {
+  text-align: center;
+  line-height: 3rem;
+/*   background: orange; */
+}
+
+.contact-header > p {
+  color: var(--orange);
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 4rem 0;
+  text-shadow: 2px 2px 1px #1f1f1f;
+}
+
+.link {
+  margin: 0 2rem;
+  font-size: 1.5rem;
+  transition: 0.3s ease-out;
+}
+
+.link:hover {
+  transform: scale(1.2);
+}
+
+.separator {
+  margin: 5rem 0 0 0;
+  border-bottom: 3px solid var(--white);
+}
+
+@media (max-width: 650px) {
+  .contact-header > h1 {
+    font-size: 3rem;
+  }
+  
+  .contact-links {
+/*     height: 100px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: 2rem 0;
+  }
+  
+  .link {
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  transition: 0.3s ease-out;
+  }
+}
+
+.fa-linkedin {
+  color: var(--red-violet);
+  color: var(--light-blue);
+}
+
+.fa-codepen {
+  color: var(--yellow-green)
+}
+
+.fa-github {
+  color: var(--light-green);
+  color: var(--red-violet);
+}
+
+
+/* ==========FOOTER SECTION START========== */
+.footer {
+  margin: 0 auto;
+  max-width: 950px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.footer > p {
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+.note > a {
+  color: var(--orange);
+}
+
+.note > a:hover {
+  color: var(--light-orange);
+  text-decoration: underline;
+}
+
+@media (max-width: 650px) {
+  .footer {
+    margin: 0 auto;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+  
+  .footer > p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  }
+}
